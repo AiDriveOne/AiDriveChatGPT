@@ -33,3 +33,27 @@ while True:
 
     # Print the AiDriveGPT response
     print("AiDriveGPT: " + AiDriveGPT_response)
+    
+    
+    
+    def send_message(message):
+    payload = {
+        "message": message
+    }
+    try:
+        response = requests.post(url, headers=headers, data=json.dumps(payload))
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.HTTPError as error:
+        print(f"HTTP error occurred: {error}")
+        return None
+    except requests.exceptions.ConnectionError as error:
+        print(f"Connection error occurred: {error}")
+        return None
+    except requests.exceptions.Timeout as error:
+        print(f"Timeout error occurred: {error}")
+        return None
+    except requests.exceptions.RequestException as error:
+        print(f"An error occurred: {error}")
+        return None
+
