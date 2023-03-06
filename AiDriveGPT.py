@@ -57,3 +57,57 @@ while True:
         print(f"An error occurred: {error}")
         return None
 
+
+    
+    
+    import requests
+import json
+
+# Your own API server URL
+url = "http://www.aidriveone.com/api/v1/AiDriveGPT"
+
+# Replace the credentials with your own API credentials
+headers = {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer YOUR_API_KEY"
+}
+
+# Function to validate user input
+def validate_input(input_str):
+    # Check if input contains any special characters or malicious content
+    if not input_str.isalnum():
+        raise ValueError("Invalid input. Please enter only alphanumeric characters.")
+
+# Function to send a message to the AiDriveGPT API and return the response
+def send_message(message):
+    # Validate user input
+    validate_input(message)
+
+    payload = {
+        "message": message
+    }
+    response = requests.post(url, headers=headers, data=json.dumps(payload))
+    return response.json()
+
+# Main loop to run the AiDriveGPT
+while True:
+    # Get user input
+    user_input = input("You: ")
+
+    try:
+        # Send user input to the AiDriveGPT API
+        response = send_message(user_input)
+
+        # Get the AiDriveGPT response from the API
+        AiDriveGPT_response = response["message"]
+
+        # Print the AiDriveGPT response
+        print("AiDriveGPT: " + AiDriveGPT_response)
+
+    except ValueError as e:
+        # Handle input validation errors
+        print("Error: " + str(e))
+
+        
+        
+        
