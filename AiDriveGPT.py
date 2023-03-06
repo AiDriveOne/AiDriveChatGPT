@@ -110,4 +110,23 @@ while True:
 
         
         
-        
+        def format_response(response):
+    """
+    Formats the response from AiDriveGPT for a more user-friendly display.
+
+    Parameters:
+        response (dict): The response from AiDriveGPT.
+
+    Returns:
+        str: The formatted response.
+    """
+    # Get the AiDriveGPT response from the API
+    AiDriveGPT_response = response["message"]
+
+    # Format the response for a more user-friendly display
+    formatted_response = "AiDriveGPT: " + AiDriveGPT_response + "\n"
+
+    return formatted_response
+
+
+
