@@ -130,3 +130,58 @@ while True:
 
 
 
+
+import os
+
+def get_api_key():
+    """
+    Retrieves the API key from an environment variable.
+
+    Returns:
+        str: The API key.
+    """
+    api_key = os.environ.get("AIDRIVE_API_KEY")
+
+    if not api_key:
+        raise ValueError("API key not found in environment variables.")
+
+    return api_key
+
+
+import requests
+import json
+import os
+
+# Your own API server URL
+url = "http://www.aidriveone.com/api/v1/AiDriveGPT"
+
+# Function to get the API key from an environment variable
+def get_api_key():
+    # ...
+
+# Replace the credentials with your own API credentials
+headers = {
+    "Content-Type": "application/json",
+    "Authorization": f"Bearer {get_api_key()}"
+}
+
+# Function to send a message to the AiDriveGPT API and return the response
+def send_message(message):
+    # ...
+
+# Main loop to run the AiDriveGPT
+while True:
+    # Get user input
+    user_input = input("You: ")
+
+    # Send user input to the AiDriveGPT API
+    response = send_message(user_input)
+
+    # Get the AiDriveGPT response from the API
+    AiDriveGPT_response = response["message"]
+
+    # Format the response for a more user-friendly display
+    formatted_response = format_response(response)
+
+    # Print the formatted response
+    print(formatted_response)
