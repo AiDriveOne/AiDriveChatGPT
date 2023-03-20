@@ -1,22 +1,26 @@
-class AIDrivenVehicle:
-    def __init__(self, vehicle_type, max_speed):
-        self.vehicle_type = vehicle_type
-        self.max_speed = max_speed
+class AiDrivenVehicle:
+    def __init__(self, vehicleType, maxSpeed):
+        self.vehicleType = vehicleType
+        self.maxSpeed = maxSpeed
 
-    def ai_drive(self, speed):
-        if speed > self.max_speed:
-            print(f"Warning: Cannot drive at {speed} km/h. Maximum speed for this {self.vehicle_type} is {self.max_speed} km/h.")
-            speed = self.max_speed
+    def aiDrive(self, speed):
+        if speed > self.maxSpeed:
+            print(f"Warning: Cannot drive at {speed} km/h. Maximum speed for this {self.vehicleType} is {self.maxSpeed} km/h.")
+            speed = self.maxSpeed
 
-        print(f"Driving {self.vehicle_type} at {speed} km/h using AI control system.")
+        print(f"Driving {self.vehicleType} at {speed} km/h using AI control system.")
 
 def main():
-    vehicle_type = "car"
-    max_speed = 120
-    desired_speed = 80
+    vehicleType = "car"
+    maxSpeed = 120
+    desiredSpeed = 80
 
-    my_vehicle = AIDrivenVehicle(vehicle_type, max_speed)
-    my_vehicle.ai_drive(desired_speed)
+    myVehicle = AiDrivenVehicle(vehicleType, maxSpeed)
+    myVehicle.aiDrive(desiredSpeed)
 
 if __name__ == "__main__":
     main()
+
+"""
+Driving car at 80 km/h using AI control system.
+"""
