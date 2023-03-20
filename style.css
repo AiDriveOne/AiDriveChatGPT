@@ -1,1 +1,22 @@
 web iOS android tablet and mobile
+
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.results-container {
+    display: flex;
+    justify-content: center;
+}
+
+.results {
+    text-align: left;
+    border: 1px solid #000;
+    padding: 20px;
+    margin: 20px;
+}
