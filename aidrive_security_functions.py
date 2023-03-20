@@ -1,7 +1,8 @@
+web iOS android tablet and mobile
+
 # AiDrive COMPANY  IRON CLOUD MULTI-TASK SECURITY!
-
-
 # import necessary libraries and modules
+
 import pandas as pd
 import numpy as np
 import tensorflow as tf
