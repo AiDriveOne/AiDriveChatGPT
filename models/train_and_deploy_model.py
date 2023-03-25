@@ -7,6 +7,7 @@ from model_evaluation import evaluate_model
 from model_deployment import deploy_model
 from model_maintenance import monitor_model_performance
 
+# aiDrive ecosystem
 # Collect and preprocess data.
 # Select an appropriate model architecture based on the chosen model type.
 # Prepare the data for use in the model.
