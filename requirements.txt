@@ -1,5 +1,12 @@
-web iOS android tablet and mobile
+from flask import Flask
+import requests
+import numpy as np
 
-Flask==2.1.0
-requests==2.26.0
-numpy==1.21.2
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+
+if __name__ == '__main__':
+    app.run(debug=True)
