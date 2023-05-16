@@ -1,0 +1,70 @@
+import json
+import os
+from PIL import Image
+from moviepy.editor import VideoClip
+
+# Function to generate outputs based on the prompt type
+def generate_outputs(prompt):
+    output_type = prompt['output']['type']
+    if output_type == 'Folder':
+        generate_folder_outputs(prompt)
+    elif output_type == 'Image':
+        generate_image_outputs(prompt)
+    elif output_type == 'Video':
+        generate_video_outputs(prompt)
+    else:
+        print("Invalid output type.")
+
+# Function to generate outputs for images
+def generate_image_outputs(prompt):
+    file_name = prompt['output']['name']
+    width = prompt['output']['width']
+    height = prompt['output']['height']
+    color = prompt['output']['color']
+    logo = prompt['output']['logo']
+
+    # Create an image with the specified width, height, and color
+    image = Image.new("RGB", (width, height), color)
+
+    # Add any image manipulation or logo insertion logic here
+    # For example, you can use the PIL library to open the logo image and paste it onto the main image
+
+    # Save the image with the provided file name
+    image.save(file_name)
+
+    print(f"Image '{file_name}' created.")
+
+# Function to generate outputs for videos
+def generate_video_outputs(prompt):
+    file_name = prompt['output']['name']
+    width = prompt['output']['width']
+    height = prompt['output']['height']
+    duration = prompt['output']['duration']
+    fps = prompt['output']['fps']
+
+    def make_frame(t):
+        # Generate custom frames here based on the time parameter 't'
+        # For example, you can create a frame using the given width, height, and colors
+
+        frame = Image.new("RGB", (width, height), (255, 255, 255))
+        return frame
+
+    video = VideoClip(make_frame, duration=duration)
+    video = video.set_duration(duration)
+    video = video.resize(width=width, height=height)
+    video.write_videofile(file_name, fps=fps)
+
+    print(f"Video '{file_name}' created.")
+
+# Load prompts from the JSON file
+prompts = load_prompts()
+
+# Display each prompt and generate outputs
+for prompt in prompts:
+    display_prompt(prompt)
+    generate_outputs(prompt)
+
+print("Outputs generated successfully.")
+
+# Example usage
+start_task()
